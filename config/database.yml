@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: flowers_management_be_development
+  database: flowers_management
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +56,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: flowers_management_be_test
+  database: flowers_management_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +81,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: flowers_management_be_production
-    username: flowers_management_be
+    database: flowers_management
+    username: flowers_management
     password: <%= ENV["FLOWERS_MANAGEMENT_BE_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: flowers_management_be_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: flowers_management_be_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: flowers_management_be_production_cable
-    migrations_paths: db/cable_migrate
+#  cache:
+#    <<: *primary_production
+#    database: flowers_management_be_production_cache
+#    migrations_paths: db/cache_migrate
+#  queue:
+#    <<: *primary_production
+#    database: flowers_management_be_production_queue
+#    migrations_paths: db/queue_migrate
+#  cable:
+#    <<: *primary_production
+#    database: flowers_management_be_production_cable
+#    migrations_paths: db/cable_migrate
